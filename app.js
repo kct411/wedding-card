@@ -33,7 +33,7 @@ function initDday() {
   const ddayContainer = document.getElementById('ddayCounter');
   if (!ddayElement) return;
 
-  const weddingDate = new Date('2026-11-21T14:00:00+09:00');
+  const weddingDate = new Date('2027-01-16T12:00:00+09:00');
   const today = new Date();
 
   // Set hours to 0 to compare dates purely
@@ -57,7 +57,7 @@ function initDday() {
    ========================================================================== */
 function initScrollAnimation() {
   const fadeElements = document.querySelectorAll('.fade-in');
-  
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
