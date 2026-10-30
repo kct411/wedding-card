@@ -1,0 +1,865 @@
+/* ==========================================================================
+   Minimalist & Elegant Mobile Wedding Invitation CSS
+   ========================================================================== */
+
+:root {
+  --bg-page: #F3EFEA;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #FAF8F5;
+  --text-main: #2C2825;
+  --text-muted: #7E7771;
+  --text-light: #A59E97;
+  --accent-gold: #9E8266;
+  --accent-gold-light: #F4EFEA;
+  --border-light: #EBE5DF;
+  --border-subtle: #F0EBE5;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --font-serif-kr: 'Noto Serif KR', serif;
+  --font-serif-en: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-serif-kr);
+  font-size: 15px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+
+/* Desktop Centered Mobile View */
+.mobile-container {
+  max-width: 440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Typography & Reusable Styles
+   ========================================================================== */
+
+.section {
+  padding: 60px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.section-tag {
+  font-family: var(--font-serif-en);
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  color: var(--border-light);
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background-color: var(--border-light);
+}
+
+.divider-leaf {
+  padding: 0 14px;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background: #EFE9E2;
+}
+
+.btn-primary {
+  background: var(--text-main);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: #111111;
+}
+
+/* ==========================================================================
+   1. Cover Section
+   ========================================================================== */
+
+.cover-section {
+  padding: 85px 24px 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background: radial-gradient(circle at 50% 20%, #FFFDF9 0%, #FAF6F0 100%);
+  position: relative;
+}
+
+.cover-eyebrow {
+  font-family: var(--font-serif-en);
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: var(--accent-gold);
+  margin-bottom: 36px;
+}
+
+.monogram-wrapper {
+  margin-bottom: 40px;
+  animation: pulse-ring 3s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.names-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.groom-name, .bride-name {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--text-main);
+}
+
+.name-divider {
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--accent-gold);
+}
+
+.date-location-badge {
+  padding: 16px 28px;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.date-text {
+  font-family: var(--font-serif-en);
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.venue-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-hint span {
+  font-family: var(--font-serif-en);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-light);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, var(--accent-gold), transparent);
+  animation: scroll-drop 1.8s infinite;
+}
+
+@keyframes scroll-drop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ==========================================================================
+   2. Greeting Section
+   ========================================================================== */
+
+.greeting-poem {
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.family-info {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-subtle);
+}
+
+.family-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.family-row strong {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.family-row .person-name {
+  font-weight: 500;
+  color: var(--text-main);
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   3. Calendar Section
+   ========================================================================== */
+
+.calendar-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 26px 18px 22px;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-family: var(--font-serif-en);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px 0;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  margin-bottom: 24px;
+}
+
+.day {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--text-main);
+}
+
+.day.sun {
+  color: #B5625D;
+}
+
+.day.muted {
+  color: #D3CDC6;
+}
+
+.day.wedding-day {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(158, 130, 102, 0.4);
+}
+
+.day-dot {
+  position: absolute;
+  top: -8px;
+  right: -2px;
+  font-size: 9px;
+  color: #B5625D;
+}
+
+.dday-counter {
+  border-top: 1px dashed var(--border-light);
+  padding-top: 18px;
+}
+
+.dday-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.highlight-num {
+  font-family: var(--font-serif-en);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin: 0 4px;
+}
+
+/* ==========================================================================
+   4. Location Section
+   ========================================================================== */
+
+.venue-info-box {
+  margin-bottom: 24px;
+}
+
+.venue-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.venue-hall {
+  font-size: 14px;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.venue-address {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.venue-tel {
+  font-size: 13px;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+}
+
+.map-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.map-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 11px 0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.map-btn:hover {
+  background: #EFE9E2;
+}
+
+.map-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.naver .map-icon { background-color: #03C75A; }
+.kakao .map-icon { background-color: #FEE500; color: #191919; }
+.tmap .map-icon { background-color: #E61E40; }
+
+.transport-guide {
+  text-align: left;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transport-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: var(--text-main);
+}
+
+.badge-tag {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.subway-badge { background: #E8F0FE; color: #1A73E8; }
+.bus-badge { background: #E6F4EA; color: #137333; }
+.car-badge { background: #FCE8E6; color: #C5221F; }
+
+.transport-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-left: 2px;
+}
+
+/* ==========================================================================
+   5. Account Section (축의금)
+   ========================================================================== */
+
+.accordion-item {
+  margin-bottom: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--bg-subtle);
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-serif-kr);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover {
+  background: #EFE8DF;
+}
+
+.accordion-arrow {
+  font-size: 11px;
+  color: var(--text-light);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  background: var(--bg-card);
+  padding: 0 16px;
+}
+
+.accordion-item.active .accordion-body {
+  padding: 16px;
+}
+
+.account-card {
+  padding: 14px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.account-card:last-child {
+  margin-bottom: 0;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.holder-role {
+  font-size: 12px;
+  color: var(--accent-gold);
+  margin-right: 6px;
+}
+
+.holder-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.account-number {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.copy-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 4px 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: var(--text-main);
+  color: #FFFFFF;
+  border-color: var(--text-main);
+}
+
+/* ==========================================================================
+   6. RSVP Section (참석 여부)
+   ========================================================================== */
+
+.rsvp-form {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 26px 20px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+}
+
+.radio-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: var(--accent-gold);
+}
+
+.radio-label:has(input[type="radio"]:checked) {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold-light);
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  background: #FFFFFF;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form select:focus {
+  border-color: var(--accent-gold);
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   7. Footer Section
+   ========================================================================== */
+
+.footer-section {
+  padding: 50px 24px 60px;
+  background: #FAF7F2;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.share-box {
+  margin-bottom: 30px;
+}
+
+.btn-share {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  box-shadow: var(--shadow-card);
+}
+
+.btn-share:hover {
+  background: #F3ECE2;
+}
+
+.footer-names {
+  font-family: var(--font-serif-en);
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+
+.footer-copy {
+  font-size: 12.5px;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   Modals & Toast
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 440px;
+  background: #FFFFFF;
+  border-radius: 20px 20px 0 0;
+  padding: 24px 20px 34px;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-light);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.contact-group h4 {
+  font-size: 13px;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14.5px;
+}
+
+.action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.contact-action-btn {
+  padding: 5px 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.contact-action-btn:hover {
+  background: var(--text-main);
+  color: #FFFFFF;
+  border-color: var(--text-main);
+}
+
+.contact-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 16px 0;
+}
+
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(30, 27, 25, 0.9);
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
